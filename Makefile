@@ -9,7 +9,6 @@ WRKDIR  := $(MDIR)/build
 
 #  Set the source file path
 vpath %.cpp src
-#vpath %.hpp src
 vpath %.o build
 vpath .base build
 
@@ -38,7 +37,7 @@ RIPS_OBJ =  rips_main.o         \
 all: rips
 
 rips:$(RIPS_OBJ)
-	$(CC) -o $@ $(addprefix build/,$(notdir $^)) ${LIBS}
+	$(CC) $(addprefix build/,$(notdir $^)) ${LIBS} -o $@
 
 .PHONY:clean
 clean: .base
